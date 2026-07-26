@@ -1,0 +1,350 @@
+.job-match-container {
+  padding: 20px 0;
+}
+
+.job-match-container h3 {
+  color: #fff;
+  margin: 0 0 20px 0;
+  font-size: 20px;
+}
+
+.match-step {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.step-header {
+  margin-bottom: 20px;
+}
+
+.step-header h4 {
+  color: #fff;
+  margin: 0 0 5px 0;
+  font-size: 18px;
+}
+
+.step-header p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 13px;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resume-textarea,
+.job-textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: monospace;
+  transition: all 0.3s;
+  resize: vertical;
+}
+
+.resume-textarea::placeholder,
+.job-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.resume-textarea:focus,
+.job-textarea:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(102, 126, 234, 0.5);
+}
+
+.input-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.toggle-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.url-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.url-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.url-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(102, 126, 234, 0.5);
+}
+
+.step-buttons,
+.result-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.next-btn,
+.back-btn,
+.analyze-btn,
+.restart-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.next-btn,
+.analyze-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.next-btn:hover:not(:disabled),
+.analyze-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+}
+
+.next-btn:disabled,
+.analyze-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.back-btn,
+.restart-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.back-btn:hover,
+.restart-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Results */
+.match-results {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.match-score-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid;
+  flex-shrink: 0;
+}
+
+.score-number {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.score-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.score-info {
+  flex: 1;
+}
+
+.recommendation {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+}
+
+.salary {
+  color: #2ecc71;
+  font-weight: 600;
+  margin: 0;
+}
+
+.results-section {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-section h4 {
+  color: #667eea;
+  margin: 0 0 15px 0;
+  font-size: 15px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.skill-tag.matching {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.skill-tag.missing {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.list {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.list li {
+  margin: 8px 0;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.result-buttons {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .match-score-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-buttons,
+  .result-buttons {
+    flex-direction: column;
+  }
+
+  .next-btn,
+  .back-btn,
+  .analyze-btn,
+  .restart-btn {
+    width: 100%;
+  }
+}
+
+/* Add this to the existing CSS */
+
+.file-upload-area {
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(102, 126, 234, 0.05);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.file-upload-area:hover {
+  border-color: rgba(102, 126, 234, 0.6);
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.file-icon {
+  font-size: 48px;
+}
+
+.file-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.file-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  margin: 0;
+  font-size: 15px;
+}
+
+.file-size {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-size: 13px;
+}
