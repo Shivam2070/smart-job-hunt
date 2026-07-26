@@ -28,10 +28,23 @@ export default function ResumeAnalyzer() {
     }
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.type !== 'application/pdf') {
+        alert('Please select a PDF file only');
+        return;
+      }
+      setSelectedFile(file);
+      console.log('File selected:', file.name);
+    }
+  };
+
   const handleUpload = async (e) => {
     e.preventDefault();
+    
     if (!selectedFile) {
-      alert('Please select a PDF file');
+      alert('Please select a PDF file first');
       return;
     }
 
@@ -40,16 +53,26 @@ export default function ResumeAnalyzer() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('https://smart-job-hunt.onrender.com/api/resume/analyze', formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      console.log('Starting upload...');
+      const response = await axios.post(
+        'https://smart-job-hunt.onrender.com/api/resume/analyze',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+          },
+        }
+      );
 
+      console.log('Upload successful:', response.data);
       setAnalysis(response.data.resume);
       setSelectedFile(null);
-      document.querySelector('.file-input').value = '';
+      
+      // Reset file input
+      const fileInput = document.getElementById('file-input');
+      if (fileInput) fileInput.value = '';
+      
       fetchResumes();
     } catch (error) {
       console.error('Error uploading resume:', error);
@@ -80,19 +103,38 @@ export default function ResumeAnalyzer() {
       {/* Upload Section */}
       <div className="upload-section">
         <form onSubmit={handleUpload} className="upload-form">
-          <input
-            type="file"
-            accept=".pdf"
-            onChange={(e) => setSelectedFile(e.target.files[0])}
-            className="file-input"
-            required
-          />
+          <div className="file-input-wrapper">
+            <input
+              id="file-input"
+              type="file"
+              accept=".pdf"
+              onChange={handleFileChange}
+              className="file-input-hidden"
+            />
+            <label htmlFor="file-input" className="file-input-label">
+              <div className="file-icon">📤</div>
+              <div className="file-text">
+                {selectedFile ? (
+                  <>
+                    <p className="file-name">✅ {selectedFile.name}</p>
+                    <p className="file-size">({(selectedFile.size / 1024).toFixed(2)} KB)</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="file-name">Click to upload PDF resume</p>
+                    <p className="file-size">or drag and drop</p>
+                  </>
+                )}
+              </div>
+            </label>
+          </div>
+
           <button
             type="submit"
-            disabled={!selectedFile || uploading}
             className="upload-btn"
+            disabled={!selectedFile || uploading}
           >
-            {uploading ? '⏳ Analyzing...' : '📤 Upload & Analyze'}
+            {uploading ? '⏳ Analyzing...' : '✨ Analyze Resume'}
           </button>
         </form>
       </div>
@@ -112,7 +154,7 @@ export default function ResumeAnalyzer() {
           <div className="analysis-section">
             <h4>🎯 Top Keywords Found</h4>
             <div className="keywords-list">
-              {analysis.keywords.map((keyword, i) => (
+              {analysis.keywords?.map((keyword, i) => (
                 <span key={i} className="keyword-tag">{keyword}</span>
               ))}
             </div>
@@ -122,7 +164,7 @@ export default function ResumeAnalyzer() {
           <div className="analysis-section">
             <h4>💡 Improvement Suggestions</h4>
             <ul className="suggestions-list">
-              {analysis.suggestions.map((suggestion, i) => (
+              {analysis.suggestions?.map((suggestion, i) => (
                 <li key={i}>{suggestion}</li>
               ))}
             </ul>
