@@ -26,7 +26,7 @@ export default function RoadmapGenerator() {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/roadmap/generate',
+        'https://smart-job-hunt.onrender.com/api/roadmap/generate',
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

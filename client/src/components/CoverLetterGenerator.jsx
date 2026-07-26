@@ -27,7 +27,7 @@ export default function CoverLetterGenerator() {
     setLoading(true);
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/cover-letter/generate',
+        'https://smart-job-hunt.onrender.com/api/cover-letter/generate',
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

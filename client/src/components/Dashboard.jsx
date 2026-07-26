@@ -26,7 +26,7 @@ export default function Dashboard({ onLogout }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/profile', {
+        const response = await axios.get('https://smart-job-hunt.onrender.com/api/auth/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(response.data);
@@ -43,7 +43,7 @@ export default function Dashboard({ onLogout }) {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/applications', {
+        const response = await axios.get('https://smart-job-hunt.onrender.com/api/applications', {
           headers: { Authorization: `Bearer ${token}` },
         });
         

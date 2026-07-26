@@ -39,7 +39,7 @@ export default function Chatbot() {
       }));
 
       const response = await axios.post(
-        'http://localhost:5000/api/chatbot/chat',
+        'https://smart-job-hunt.onrender.com/api/chatbot/chat',
         {
           message: inputValue,
           conversationHistory,

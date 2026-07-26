@@ -17,7 +17,7 @@ export default function ResumeAnalyzer() {
 
   const fetchResumes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/resume', {
+      const response = await axios.get('https://smart-job-hunt.onrender.com/api/resume', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setResumes(response.data);
@@ -40,7 +40,7 @@ export default function ResumeAnalyzer() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/resume/analyze', formData, {
+      const response = await axios.post('https://smart-job-hunt.onrender.com/api/resume/analyze', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -62,7 +62,7 @@ export default function ResumeAnalyzer() {
   const handleDelete = async (id) => {
     if (window.confirm('Delete this resume?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/resume/${id}`, {
+        await axios.delete(`https://smart-job-hunt.onrender.com/api/resume/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         fetchResumes();

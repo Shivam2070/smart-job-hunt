@@ -29,7 +29,7 @@ export default function EditProfile({ user, onClose, onSuccess }) {
 
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/auth/profile',
+        'https://smart-job-hunt.onrender.com/api/auth/profile',
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

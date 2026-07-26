@@ -11,8 +11,8 @@ export default function Jobs() {
         setLoading(true);
         try {
             const url = keyword
-                ? `http://localhost:5000/api/jobs/search/${keyword}`
-                : `http://localhost:5000/api/jobs/search`;
+                ? `https://smart-job-hunt.onrender.com/api/jobs/search/${keyword}`
+                : `https://smart-job-hunt.onrender.com/api/jobs/search`;
 
             const response = await axios.get(url);
             setJobs(response.data.jobs);

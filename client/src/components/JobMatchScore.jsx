@@ -31,7 +31,7 @@ export default function JobMatchScore() {
       formData.append('file', file);
 
       const response = await axios.post(
-        'http://localhost:5000/api/job-match/extract-pdf',
+        'https://smart-job-hunt.onrender.com/api/job-match/extract-pdf',
         formData,
         {
           headers: {
@@ -85,7 +85,7 @@ export default function JobMatchScore() {
       }
 
       const response = await axios.post(
-        'http://localhost:5000/api/job-match/analyze',
+        'https://smart-job-hunt.onrender.com/api/job-match/analyze',
         payload,
         { headers: { Authorization: `Bearer ${token}` } }
       );

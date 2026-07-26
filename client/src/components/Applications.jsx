@@ -25,7 +25,7 @@ export default function Applications() {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/applications', {
+      const response = await axios.get('https://smart-job-hunt.onrender.com/api/applications', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setApplications(response.data);
@@ -39,7 +39,7 @@ export default function Applications() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/applications', formData, {
+      await axios.post('https://smart-job-hunt.onrender.com/api/applications', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFormData({
@@ -61,7 +61,7 @@ export default function Applications() {
   const handleUpdateStatus = async (id, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/applications/${id}`,
+        `https://smart-job-hunt.onrender.com/api/applications/${id}`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -74,7 +74,7 @@ export default function Applications() {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/applications/${id}`, {
+        await axios.delete(`https://smart-job-hunt.onrender.com/api/applications/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         fetchApplications();

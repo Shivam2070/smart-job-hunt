@@ -13,7 +13,7 @@ export default function Signup({ onSignupSuccess, onToggleLogin }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+      const response = await axios.post('https://smart-job-hunt.onrender.com/api/auth/signup', {
         name,
         email,
         password,
