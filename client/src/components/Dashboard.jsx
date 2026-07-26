@@ -125,7 +125,7 @@ export default function Dashboard({ onLogout }) {
             className={`tab-btn ${activeTab === 'resume' ? 'active' : ''}`}
             onClick={() => setActiveTab('resume')}
           >
-            📄 Resume
+            📄 Resume Analyzer
           </button>
           <button
             className={`tab-btn ${activeTab === 'chatbot' ? 'active' : ''}`}
@@ -137,7 +137,7 @@ export default function Dashboard({ onLogout }) {
             className={`tab-btn ${activeTab === 'roadmap' ? 'active' : ''}`}
             onClick={() => setActiveTab('roadmap')}
           >
-            🗺️ Roadmap
+            🗺️ Roadmap 
           </button>
           <button
             className={`tab-btn ${activeTab === 'coverLetter' ? 'active' : ''}`}
