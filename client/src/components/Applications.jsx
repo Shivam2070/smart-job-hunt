@@ -100,7 +100,7 @@ export default function Applications() {
     <div className="applications-container">
       <div className="applications-header">
         <h3>My Applications ({applications.length})</h3>
-        <button 
+        <button
           className="add-application-btn"
           onClick={() => setShowForm(!showForm)}
         >
@@ -117,14 +117,14 @@ export default function Applications() {
                 type="text"
                 placeholder="Job Title"
                 value={formData.jobTitle}
-                onChange={(e) => setFormData({...formData, jobTitle: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, jobTitle: e.target.value })}
                 required
               />
               <input
                 type="text"
                 placeholder="Company"
                 value={formData.company}
-                onChange={(e) => setFormData({...formData, company: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                 required
               />
             </div>
@@ -134,11 +134,11 @@ export default function Applications() {
                 type="text"
                 placeholder="Salary (Optional)"
                 value={formData.salary}
-                onChange={(e) => setFormData({...formData, salary: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
               />
               <select
                 value={formData.status}
-                onChange={(e) => setFormData({...formData, status: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, status: e.target.value })}
               >
                 <option>Applied</option>
                 <option>Reviewing</option>
@@ -154,20 +154,20 @@ export default function Applications() {
                 type="date"
                 placeholder="Interview Date"
                 value={formData.interviewDate}
-                onChange={(e) => setFormData({...formData, interviewDate: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, interviewDate: e.target.value })}
               />
               <input
                 type="url"
                 placeholder="Job URL"
                 value={formData.jobUrl}
-                onChange={(e) => setFormData({...formData, jobUrl: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, jobUrl: e.target.value })}
               />
             </div>
 
             <textarea
               placeholder="Notes (Optional)"
               value={formData.notes}
-              onChange={(e) => setFormData({...formData, notes: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               rows="3"
             ></textarea>
 
@@ -190,7 +190,7 @@ export default function Applications() {
                   {app.salary && <p className="salary">💰 {app.salary}</p>}
                 </div>
                 <div className="app-status">
-                  <select 
+                  <select
                     value={app.status}
                     onChange={(e) => handleUpdateStatus(app._id, e.target.value)}
                     className="status-select"
@@ -220,7 +220,7 @@ export default function Applications() {
                     View Job
                   </a>
                 )}
-                <button 
+                <button
                   className="delete-btn"
                   onClick={() => handleDelete(app._id)}
                 >

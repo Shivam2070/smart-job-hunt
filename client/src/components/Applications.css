@@ -58,7 +58,7 @@
 .add-application-form textarea {
   background: rgba(164, 25, 25, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   padding: 12px;
   border-radius: 10px;
   font-size: 14px;
@@ -142,13 +142,18 @@
 .status-select {
   background: rgba(255, 255, 255, 0.08) !important ;
   border: 2px solid !important;
-  color: rgb(0, 0, 0) !important;
+  color: rgb(253, 253, 253);
   padding: 8px 12px !important;
   border-radius: 8px !important;
   font-weight: 600 !important;
   cursor: pointer !important;
 }
 
+option{
+  background: #2a2a3a;
+    color: white;
+    padding: 10px;
+}
 
 
 .app-details {
